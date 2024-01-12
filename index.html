@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+    <title>krish project</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+
+article {
+  padding-bottom: 0;
+}
+footer {
+  height: 0;
+  display: none;
+}
+
+  </style>
+  
+  <link rel="stylesheet" type="text/css" href="./v86.css" />
+  <style>
+#screen_container {
+  float: none;
+  border: none;
+}
+#content_container {
+  text-align: center;
+}
+  </style>
+
+</head>
+
+
+<body>
+  <div class="">
+    
+  <article>
+    <div id="content_container">
+
+      <div id="screen_container">
+        <div id="screen"></div>
+        <canvas id="vga"></canvas>
+      </div>
+
+    </div>
+  </article> 
+  </div>
+
+  <script src="./build/libv86.js"></script>
+  <script>
+  "use strict";
+
+  var emulator = new V86Starter({
+      memory_size: 32 * 1024 * 1024,
+      vga_memory_size: 2 * 1024 * 1024,
+      screen_container: document.getElementById("screen_container"),
+      bios: {
+          url: './bios/seabios.bin',
+      },
+      vga_bios: {
+          url: './bios/vgabios.bin',
+      },
+      hda: {
+          url: './mp3.img'
+      },
+      autostart: true,
+  });
+  </script>
+
+</body>
